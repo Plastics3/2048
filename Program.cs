@@ -1,9 +1,22 @@
-using System;
+using System.Security.Cryptography;
 
-class Program
+namespace _2048
 {
-    static void Main(string[] args)
+    class Program
     {
-        Console.WriteLine("Hello, World! This is a C# 2048 starter project.");
+        static void Main(string[] args)
+        {
+            Game game = new();
+
+            while (true)
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo keyInfo = Console.ReadKey(intercept: true);
+                    game.Keys(keyInfo);
+
+                }
+            }
+        }
     }
 }
